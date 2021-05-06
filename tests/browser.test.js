@@ -32,3 +32,34 @@ describe('Clicking "Pusha till stacken"', () => {
 		await alert.accept();
 	});
 });
+
+describe('Clicking "Pop the stack"', () => {
+  it('should remove top item on the stack', async () => {
+    let push = await driver.findElement(By.id('push'));
+		await push.click();
+		let alert = await driver.switchTo().alert();
+		await alert.sendKeys("x");
+		await alert.accept();
+
+    await push.click();
+		alert = await driver.switchTo().alert();
+		await alert.sendKeys("y");
+		await alert.accept();
+
+    await push.click();
+		alert = await driver.switchTo().alert();
+		await alert.sendKeys("z");
+		await alert.accept();
+
+    let pop = await driver.findElement(By.id('pop'));
+    await pop.click();
+    alert = await driver.switchTo().alert();
+    await alert.accept();
+
+    let peek = await driver.findElement(By.id("peek"));
+    peek.click();
+    let peeked_value = await driver.findElement(By.id("top_of_stack")).getText();
+    expect(peeked_value).toEqual("z");
+
+  })
+})
