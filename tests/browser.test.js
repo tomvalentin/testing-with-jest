@@ -59,7 +59,7 @@ describe('Clicking "Pop the stack"', () => {
     let peek = await driver.findElement(By.id("peek"));
     peek.click();
     let peeked_value = await driver.findElement(By.id("top_of_stack")).getText();
-    expect(peeked_value).toEqual("z");
+    expect(peeked_value).toEqual("y");
 
   })
 })

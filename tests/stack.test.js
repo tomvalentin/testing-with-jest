@@ -24,6 +24,6 @@ test('peek on stack after pop returns the second to last item pushed', () => {
   stack.push('z')
   expect(stack.peek()).toBe('z')
   stack.pop()
-  expect(stack.peek()).toBe('z')
+  expect(stack.peek()).toBe('y')
 
 })
